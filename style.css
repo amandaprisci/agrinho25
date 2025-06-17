@@ -1,56 +1,181 @@
+/* Importação de fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
 /* Estilos gerais do corpo da página */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #e9ecef;
     color: #333;
-    line-height: 1.6;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o footer fique no final da página */
 }
 
 /* Estilos para o cabeçalho */
 header {
-    background-color: #333;
+    background-color: #28a745; /* Verde para remeter ao campo */
     color: #fff;
-    padding: 1rem 0;
+    padding: 2rem 0;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
+    font-family: 'Merriweather', serif;
     margin: 0;
+    font-size: 2.8em;
+    letter-spacing: 1px;
 }
 
-/* Estilos para o conteúdo principal e seções */
-.container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+/* Estilos para o conteúdo principal */
+main {
+    flex: 1; /* Permite que o main ocupe o espaço restante */
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column; /* Em telas menores, as seções ficam em coluna */
+    gap: 30px;
 }
 
-h2 {
-    color: #0056b3;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+/* Estilos para as seções principais (Campo e Cidade) */
+.secao-principal {
+    flex: 1; /* Permite que as seções Campo e Cidade cresçam igualmente */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.secao-principal.campo {
+    background: linear-gradient(135deg, #d4edda, #cce5ff); /* Degradê mais suave */
+    border-left: 8px solid #218838; /* Verde escuro */
+}
+
+.secao-principal.cidade {
+    background: linear-gradient(135deg, #e0f2f7, #f8f9fa); /* Degradê mais urbano */
+    border-right: 8px solid #0056b3; /* Azul escuro */
+}
+
+.secao-principal h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.2em;
     margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2c3e50;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
 }
 
-ul {
-    list-style: disc;
-    margin-left: 20px;
+.secao-principal p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    text-align: justify;
 }
 
-ul li {
-    margin-bottom: 5px;
+.secao-principal ul {
+    list-style: none; /* Remove os marcadores padrão */
+    padding: 0;
+    margin-top: 20px;
+}
+
+.secao-principal ul li {
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.secao-principal.campo ul li::before {
+    content: '🌱'; /* Ícone de planta */
+    font-size: 1.2em;
+}
+
+.secao-principal.cidade ul li::before {
+    content: '🏙️'; /* Ícone de prédio */
+    font-size: 1.2em;
+}
+
+/* Divisória entre as seções */
+.divisoria {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.divisoria p {
+    margin: 0;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.divisoria .seta {
+    font-size: 2.5em;
+    color: #007bff;
+    animation: bounce 2s infinite; /* Animação da seta */
+}
+
+/* Seção de impacto */
+.impacto {
+    background-color: #f0f8ff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.impacto h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.impacto p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Estilos para o rodapé */
 footer {
     text-align: center;
-    padding: 20px 0;
-    background-color: #333;
+    padding: 25px 0;
+    background-color: #343a40; /* Cinza escuro */
     color: #fff;
-    margin-top: 30px;
+    margin-top: 40px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries para responsividade */
+@media (min-width: 768px) {
+    main {
+        flex-direction: row; /* Em telas maiores, as seções ficam lado a lado */
+    }
+}
+
+/* Animações */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
